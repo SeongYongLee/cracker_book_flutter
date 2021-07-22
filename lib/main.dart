@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'component/common/AppBarComponent.dart';
+import 'model/Study.dart';
+import 'model/StudyKind.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -14,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.yellow,
       ),
-      home: MyHomePage(title: 'CreakBook'),
+      home: MyHomePage(title: 'Creaker Book'),
     );
   }
 }
@@ -37,26 +41,13 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-class Kind {
-  String title;
-  String src;
-
-  Kind(this.title, this.src);
-}
-
-class Study {
-  String title;
-
-  Study(this.title);
-}
-
 class _MyHomePageState extends State<MyHomePage> {
   final kindList = [
-    Kind('토론', 'assets/main/chats.svg'),
-    Kind('발표', 'assets/main/microphone.svg'),
-    Kind('글쓰기', 'assets/main/note.svg'),
-    Kind('포트폴리오', 'assets/main/desktop.svg'),
-    Kind('기타', 'assets/main/etc.svg'),
+    StudyKind('토론', 'assets/main/chats.svg'),
+    StudyKind('발표', 'assets/main/microphone.svg'),
+    StudyKind('글쓰기', 'assets/main/note.svg'),
+    StudyKind('포트폴리오', 'assets/main/desktop.svg'),
+    StudyKind('기타', 'assets/main/etc.svg'),
   ];
 
   final studyList = [
@@ -68,21 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: SvgPicture.asset('assets/main/HeaderTitle.svg'),
-        centerTitle: true,
-        elevation: 0,
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.search),
-            tooltip: '검색',
-            onPressed: () {
-              // handle the press
-            },
-          ),
-        ],
-      ),
+      appBar: AppBarComponent(),
       body: Container(
         color: Colors.white,
         child: SingleChildScrollView(
@@ -91,10 +68,10 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Container(
                   margin:
-                  EdgeInsets.only(left: 6, right: 6, top: 10, bottom: 10),
+                      EdgeInsets.only(left: 6, right: 6, top: 10, bottom: 10),
                   height: 100,
                   child: ListView.builder(
-                    // 스크롤 방향 설정. 수평적으로 스크롤되도록 설정
+                      // 스크롤 방향 설정. 수평적으로 스크롤되도록 설정
                       scrollDirection: Axis.horizontal,
                       itemCount: kindList.length,
                       itemBuilder: (BuildContext context, int index) {
@@ -121,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       })),
               Container(
                 margin:
-                EdgeInsets.only(left: 20, right: 20, top: 22, bottom: 10),
+                    EdgeInsets.only(left: 20, right: 20, top: 22, bottom: 10),
                 child: ListView.builder(
                     physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
@@ -268,28 +245,28 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Container(
                 margin:
-                EdgeInsets.only(left: 20, right: 20, top: 22, bottom: 10),
+                    EdgeInsets.only(left: 20, right: 20, top: 22, bottom: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       '좋아요가 많은 스터디',
                       style:
-                      TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
               ),
               Container(
                 margin:
-                EdgeInsets.only(left: 20, right: 20, top: 22, bottom: 10),
+                    EdgeInsets.only(left: 20, right: 20, top: 22, bottom: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       '새로 생긴 스터디',
                       style:
-                      TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
