@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 class AppBarComponent extends StatelessWidget implements PreferredSizeWidget{
   @override
   // TODO: implement preferredSize
-  Size get preferredSize => const Size.fromHeight(70);
+  Size get preferredSize => const Size.fromHeight(45);
 
   @override
   Widget build(BuildContext context) {

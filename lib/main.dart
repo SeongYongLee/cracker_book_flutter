@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'component/common/AppBarComponent.dart';
+import 'component/main/StudyKindComponent.dart';
 import 'model/Study.dart';
-import 'model/StudyKind.dart';
 
 void main() {
   runApp(MyApp());
@@ -42,14 +42,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final kindList = [
-    StudyKind('토론', 'assets/main/chats.svg'),
-    StudyKind('발표', 'assets/main/microphone.svg'),
-    StudyKind('글쓰기', 'assets/main/note.svg'),
-    StudyKind('포트폴리오', 'assets/main/desktop.svg'),
-    StudyKind('기타', 'assets/main/etc.svg'),
-  ];
-
   final studyList = [
     Study('눈치껏 못 배웁니다, 일센스...'),
     Study('생각의 쓰임'),
@@ -66,36 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
           physics: ScrollPhysics(),
           child: Column(
             children: [
-              Container(
-                  margin:
-                      EdgeInsets.only(left: 6, right: 6, top: 10, bottom: 10),
-                  height: 100,
-                  child: ListView.builder(
-                      // 스크롤 방향 설정. 수평적으로 스크롤되도록 설정
-                      scrollDirection: Axis.horizontal,
-                      itemCount: kindList.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Container(
-                              width: 70,
-                              margin: EdgeInsets.only(
-                                  left: 8, right: 8, top: 20, bottom: 20),
-                              child: SvgPicture.asset('${kindList[index].src}'),
-                            ),
-                            Container(
-                              width: 70,
-                              margin: EdgeInsets.only(left: 8, right: 8),
-                              child: Text(kindList[index].title,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.normal)),
-                            )
-                          ],
-                        );
-                      })),
+              StudyKindComponent(),
               Container(
                 margin:
                     EdgeInsets.only(left: 20, right: 20, top: 22, bottom: 10),
