@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'package:cracker_book_flutter/model/StudyKind.dart';
+import 'package:cracker_book_flutter/model/StudyType.dart';
 
-class StudyKindComponent extends StatelessWidget {
-  final studyKindList = [
-    StudyKind('토론', 'assets/main/chats.svg'),
-    StudyKind('발표', 'assets/main/microphone.svg'),
-    StudyKind('글쓰기', 'assets/main/note.svg'),
-    StudyKind('포트폴리오', 'assets/main/desktop.svg'),
-    StudyKind('기타', 'assets/main/etc.svg'),
-  ];
-
+class StudyTypeComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,7 +11,7 @@ class StudyKindComponent extends StatelessWidget {
         height: 100,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: studyKindList.length,
+            itemCount: studyTypeList.length,
             itemBuilder: (BuildContext context, int index) {
               return Column(
                 children: [
@@ -40,10 +32,10 @@ class StudyKindComponent extends StatelessWidget {
                             offset: Offset(5, 5)),
                       ],
                     ),
-                    child: SvgPicture.asset('${studyKindList[index].src}'),
+                    child: SvgPicture.asset('${studyTypeList[index].src}'),
                   ),
                   Center(
-                    child: Text(studyKindList[index].title,
+                    child: Text(studyTypeList[index].title,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             fontSize: 12, fontWeight: FontWeight.normal)),
