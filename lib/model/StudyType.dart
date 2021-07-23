@@ -6,9 +6,9 @@ class StudyType {
 }
 
 final studyTypeList = [
-  StudyType('토론', 'assets/main/chats.svg'),
-  StudyType('발표', 'assets/main/microphone.svg'),
-  StudyType('글쓰기', 'assets/main/note.svg'),
-  StudyType('포트폴리오', 'assets/main/desktop.svg'),
-  StudyType('기타', 'assets/main/etc.svg'),
+  StudyType('토론', 'assets/main/studytype/chats.svg'),
+  StudyType('발표', 'assets/main/studytype/microphone.svg'),
+  StudyType('글쓰기', 'assets/main/studytype/note.svg'),
+  StudyType('포트폴리오', 'assets/main/studytype/desktop.svg'),
+  StudyType('기타', 'assets/main/studytype/etc.svg'),
 ];
